@@ -2,7 +2,7 @@
 /**
  *main - print out a statement using puts
  *
- * return - print successfully
+ * return - 0
 */
 int main(void)
 {
