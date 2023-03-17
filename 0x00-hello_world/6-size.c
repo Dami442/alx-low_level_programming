@@ -2,7 +2,7 @@
 /**
  * main - prints out statement
  *
- * Return: 0 as success
+ * Return: Always 0 (Success)
  *
  */
 int main(void)
