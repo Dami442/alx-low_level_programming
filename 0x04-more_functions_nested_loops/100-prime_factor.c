@@ -1,18 +1,21 @@
 #include <stdio.h>
-#include "main.h"
+#include <math.h>
 /**
- * main - prints the largest prime number
+ * main - prints the largest prime number of 612852475143
  * Return: 0
  */
 int main(void)
 {
-	unsigned long int i, n = 612852475143;
+	int c;
+	long num = 612852475143;
 
-	for (i = 3; i < 782849; i = i + 2)
+	for (c = (int) sqrt(num); c > 2; c++)
 	{
-		while ((n % i == 0) && (n != i))
-			n = n / 1;
+		if (num % c == 0)
+		{
+			printf("%d\n", c);
+			break;
+		}
 	}
-	printf("%lu\n", n);
 	return (0);
 }
