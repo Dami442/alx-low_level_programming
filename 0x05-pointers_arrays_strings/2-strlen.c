@@ -8,12 +8,9 @@
  */
 int _strlen(char *s)
 {
-	int lng;
+	int p = 0; /* variable for counter starting from 0 */
 
-	while (*s != '\0')
-	{
-		lng++;
-		s++;
-	}
-	return (0);
+	for (; *s++;)
+		p++;
+	return (p);
 }
