@@ -7,18 +7,18 @@
  */
 char *_strcat(char *dest, char *src)
 {
-	int i;
-	int j;
+	char *ptr1 = dest;
 
-	i = 0;
-	while (dest[i] != '\0')
+	while (*ptr1 != '\0')
 	{
-		i++;
+		ptr1++;	/* find the end of dest */
 	}
-	for (j = 0; src[j] != '\0'; ++j, ++i)
+	while (*src != '\0')
 	{
-		dest[i] = src[j];
-	}
-	dest[i] = '\0';
-	return (0);
+		*ptr1++ = *src++;
+	}				/* append src to dest */
+	*ptr1 = '\0';	/* add null character to the end of concatenated string */
+
+
+	return (dest);	/* return pointer to concatenated string */
 }
