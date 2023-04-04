@@ -7,14 +7,22 @@
  */
 char *_strchr(char *s, char c)
 {
-	while (*s != '\0')
+	while (*s != '\0')  /* For characters excluding the last one */
 	{
-		if (*s == c)
+		if (*s == c) /* Checks if the current character */
+			       /*in the string is equal to c */
 		{
 			return (s);
 		}
 		s++;
-
 	}
-	return (0);
+
+	if  (*s == c) /* to check if the last character is = c*/
+	{
+		return (s);
+	}
+	else
+	{
+		return (NULL);
+	}
 }
