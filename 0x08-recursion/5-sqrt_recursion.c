@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 /**
  * _sqrt_recursion - returns the natural
  * @n: number input
@@ -24,23 +25,24 @@ int _sqrt_recursion(int n)
 int _sqrt_helper(int n, int start, int end)
 {
 	int mid  = (start + end) / 2;
+	int sqr = mid * mid;
 
-	if (start > end)
-	{
-		return (-1);
-	}
-
-	if (mid * mid == n)
+	if (sqr == n)
 	{
 		return (mid);
 	}
-	else if (mid * mid < n)
+
+	if (end - start <= 1)
 	{
-		return (_sqrt_helper(n, mid + 1, end));
+		return (-1);
+	}
+	else if (sqr < n)
+	{
+		return (_sqrt_helper(n, mid, end));
 	}
 	else
 	{
-		return (_sqrt_helper(n, start, mid - 1));
+		return (_sqrt_helper(n, start, mid));
 	}
 }
 
