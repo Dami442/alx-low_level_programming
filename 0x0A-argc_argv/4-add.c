@@ -26,18 +26,13 @@ int main(int argc, char *argv[])
 	{
 		num = atoi(argv[i]);
 
-		if (num == 0 && *argv[i] != '0')
+		if (num <= 0 || (num == 0 && *argv[i] != '0'))
 		{
-			printf("Error: Invalid input.\n");
-			return (1);
-		}
-		else if (num < 0)
-		{
-			printf("Error: %d not a valid positive integer\n", num);
+			printf("Error\n");
 			return (1);
 		}
 
-		sum += num;
+	sum += num;
 	}
 	printf("%d\n", sum);
 	return (0);
