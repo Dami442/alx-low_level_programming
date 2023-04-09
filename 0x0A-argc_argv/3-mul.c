@@ -12,19 +12,26 @@ int main(int argc, char *argv[])
 {
 	int mul = 1;
 	int i;
+	int valid;
 
 	if (argc < 2)
 	{
 		printf("Error\n");
 		return (1);
 	}
-	else
+	for (i = 1; i < argc; i++)
 	{
-		for (i = 1; i < argc; i++)
+		valid = atoi(argv[i]);
+
+		if (valid == 0 && *argv[i] != '0')
 		{
-			mul = mul * atoi(argv[i]);
+			printf("Error: %s is not a number\n", argv[i]);
+			return (1);
 		}
-		printf("%d\n", mul);
-		return (0);
+
+		mul *= valid;
 	}
+	printf("%d\n", mul);
+	return (0);
 }
+
