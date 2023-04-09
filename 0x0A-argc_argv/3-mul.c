@@ -10,28 +10,21 @@
  */
 int main(int argc, char *argv[])
 {
-	int mul = 1;
-	int i;
-	int valid;
+	int num1;
+	int num2;
+	int mul;
 
-	if (argc < 2)
+	if (argc != 3)
 	{
 		printf("Error\n");
 		return (1);
 	}
-	for (i = 1; i < argc; i++)
-	{
-		valid = atoi(argv[i]);
 
-		if (valid == 0 && *argv[i] != '0')
-		{
-			printf("Error: %s is not a number\n", argv[i]);
-			return (1);
-		}
+	num1 = atoi(argv[1]);
+	num2 = atoi(argv[2]);
 
-		mul *= valid;
-	}
+	mul = num1 * num2;
+
 	printf("%d\n", mul);
 	return (0);
 }
-
