@@ -2,7 +2,7 @@
 #include <unistd.h>
 
 /**
- * _strstr - function not yet created
+ * strstr - function not yet created
  * @haystack: haystack
  * @needle: needle
  * Return: 0
