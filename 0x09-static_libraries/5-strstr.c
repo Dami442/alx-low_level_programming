@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <unistd.h>
+#include "main.h"
 
 /**
  * strstr - function not yet created
