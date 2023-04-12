@@ -24,15 +24,15 @@ int **alloc_grid(int width, int height)
 	}
 	for (i = 0; i < height; i++)
 	{
-		grid[i] = calloc(width, sizeof(int));
+		grid[i] = malloc(width * sizeof(int));
 		if (grid[i] == NULL)
 		{		/* Free previously allocated memory */
 			for (j = 0; j < i; j++)
 			{
 				free(grid[j]);
 			}
-		free(grid);
-		return (NULL);
+			free(grid);
+			return (NULL);
 		}
 		for (j = 0; j < width; j++)
 		{
