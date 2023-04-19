@@ -23,7 +23,7 @@ int op_sub(int a, int b)
 	return (a - b);
 }
 
-/*
+/**
  * op_mul - product of 2 numbers
  * @a: first int par
  * @b: second int par
