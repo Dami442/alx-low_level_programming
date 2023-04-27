@@ -2,7 +2,7 @@
 
 
 /**
- * add_node - adds a new node at the beginning of a list_t list
+ * add_node_end - adds a new node at the beginning of a list_t list
  * @head: ptr to a ptr that points to the head of the list
  * @str: string parameter
  *
@@ -31,7 +31,7 @@ list_t *add_node_end(list_t **head, const char *str)
 	{
 		last_node = *head;
 
-		while(last_node->next != NULL)
+		while (last_node->next != NULL)
 			last_node = last_node->next;
 		last_node->next = new_node;
 	}
