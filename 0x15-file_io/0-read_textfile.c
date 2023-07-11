@@ -21,13 +21,17 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	{
 		return (0);
 	}
-	if (Readbytes == 0)
+	if (buffer == NULL)
 	{
 		fclose(file);
 		return (0);
 	}
-
-	buffer[Readbytes] = '\0'; /* Add null terminator */
+	if (Readbytes == 0)
+	{
+		free(buffer);
+		fclose(file);
+		return (0);
+	}
 
 	Writebytes = fwrite(buffer, sizeof(char), Readbytes, stdout);
 	free(buffer);
