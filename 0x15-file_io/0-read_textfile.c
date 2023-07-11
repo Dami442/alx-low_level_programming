@@ -30,6 +30,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	buffer[Readbytes] = '\0'; /* Add null terminator */
 
 	Writebytes = fwrite(buffer, sizeof(char), Readbytes, stdout);
+	free(buffer);
 	fclose(file);
 
 	if (Writebytes != Readbytes)
