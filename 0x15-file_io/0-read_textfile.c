@@ -11,7 +11,7 @@
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	FILE *file = fopen(filename, "r");
-	int c;
+	char c;
 	size_t num = 0;
 	size_t total_no_written = 0;
 
