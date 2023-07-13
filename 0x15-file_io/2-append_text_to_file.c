@@ -14,7 +14,7 @@
 int append_text_to_file(const char *filename, char *text_content)
 {
 	int file;
-	int bytes_to_write;
+	int bytes_to_write = 0;
 	int write_bytes;
 
 
@@ -22,20 +22,10 @@ int append_text_to_file(const char *filename, char *text_content)
 	{
 		return (-1);
 	}
-	file = open(filename, O_RDONLY);
-	if (file == -1)
-	{
-		return (-1);
-	}
-	close(file);
 
 	file = open(filename, O_WRONLY | O_APPEND);
 	if (file == -1)
 	{
-		return (-1);
-	}
-	if (text_content == NULL)
-	{	close(file);
 		return (-1);
 	}
 
@@ -45,11 +35,14 @@ int append_text_to_file(const char *filename, char *text_content)
 	}
 	write_bytes = write(file, text_content, bytes_to_write);
 	close(file);
-	if (write_bytes == -1)
+	if (write_bytes == bytes_to_write)
 	{
-		return (-1);
+		return (1);
 	}
-	return (1);
+	else
+	{
+		return (1);
+	}
 }
 
 
