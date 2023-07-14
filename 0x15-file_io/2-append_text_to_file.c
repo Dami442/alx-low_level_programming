@@ -14,35 +14,35 @@
 int append_text_to_file(const char *filename, char *text_content)
 {
 	int file;
-	int bytes_to_write = 0;
-	int write_bytes;
+	ssize_t len = 0;
+	ssize_t write_bytes;
 
 
 	if (filename == NULL)
 	{
 		return (-1);
 	}
-
 	file = open(filename, O_WRONLY | O_APPEND);
 	if (file == -1)
 	{
 		return (-1);
 	}
-
-	while (text_content[bytes_to_write] != '\0')
+	if (text_content == NULL)
 	{
-		bytes_to_write++;
+		close(file);
+		return (1);
 	}
-	write_bytes = write(file, text_content, bytes_to_write);
+	while (text_content[len] != '\0')
+	{
+		len++;
+	}
+
+	write_bytes = write(file, text_content, len);
 	close(file);
-	if (write_bytes == bytes_to_write)
+
+	if (write_bytes == -1)
 	{
-		return (1);
+	return (-1);
 	}
-	else
-	{
-		return (1);
-	}
+	return (1);
 }
-
-
